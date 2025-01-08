@@ -11,8 +11,7 @@ class individualproductpage extends StatefulWidget {
 
 class _individualproductpageState extends State<individualproductpage> {
   int? tappedchip=0;
-  bool ispressed1=false;
-  bool ispressed2=false;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +20,8 @@ class _individualproductpageState extends State<individualproductpage> {
         title:Text(product_infos[widget.index1]['Name'].toString()),
         centerTitle: true, 
         backgroundColor: const Color.fromARGB(255, 236, 226, 193),
-        elevation: 50,
+        elevation:15,
+        shadowColor: Colors.black,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
         ),
@@ -82,13 +82,17 @@ class _individualproductpageState extends State<individualproductpage> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: const WidgetStatePropertyAll(Colors.amber),
-                              elevation: WidgetStatePropertyAll(ispressed1==true?5:0)
+                              elevation: WidgetStatePropertyAll(2)
                               
 
                             ),
                             child:const  Text("Add to Cart"),
                             onPressed:() {
-                              ispressed1=!ispressed1;
+                              if (products_to_show_in_cart_index.contains(widget.index1)!=true){
+                                products_to_show_in_cart_index.add(widget.index1);
+                              }
+                              
+                              
                               setState(() {
                                 
                               });
@@ -104,12 +108,12 @@ class _individualproductpageState extends State<individualproductpage> {
                             
                             style: ButtonStyle(
                               backgroundColor: const WidgetStatePropertyAll(Colors.amber),
-                              elevation: WidgetStatePropertyAll(ispressed2==true?0:5)
+                              elevation: WidgetStatePropertyAll(2)
 
                             ),
                             child: const Text("Buy Now"),
                             onPressed:() {
-                              ispressed2=!ispressed2;
+                              
                               setState(() {
                                 
                               });
