@@ -5,7 +5,7 @@ class firstpage extends StatefulWidget {
   const firstpage({super.key});
 
   @override
-  State<firstpage> creaateState() => _firstpageState();
+  State<firstpage> createState() => _firstpageState();
 }
 
 class _firstpageState extends State<firstpage> {
